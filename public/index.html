@@ -24,20 +24,12 @@
       <tr>
         <td width="50%" valign="top">
           <div ng-app="myApp">
-            <div ng-controller="StageController">
+            <div ng-controller="BaseController">
               <div id="main">
                 <div id="header">
                   <h1>{{title}}</h1>
-                  <shopping-cart></shopping-cart>
-                </div>
-                <div id="items">
-                  <div class="item" ng-repeat="i in items">
-                    <div item-card item-title="{{i.title}}" item-src="{{i.src}}" item-price="{{i.price}}" />
-                  </div>
-                </div>
-                <hr />
-                <div id="footer">
-                  <shopping-cart></shopping-cart>
+                  <hr />
+                  <item-list></item-list>
                 </div>
               </div>
             </div>

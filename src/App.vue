@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <h1>My Todo App!</h1>
-    <TodoList/>
+    <h1>Vue Todo App</h1>
+    <TodoList />
   </div>
 </template>
 
@@ -11,6 +11,11 @@ import TodoList from './components/TodoList.vue';
 export default {
   components: {
     TodoList,
+  },
+  data() {
+    return {
+      todos: [],
+    };
   },
 };
 </script>

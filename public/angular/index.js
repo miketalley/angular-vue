@@ -33,66 +33,29 @@
 
 window.angular
   .module('myApp', ['myApp.directives'])
-  .controller('StageController', ($scope) => {
-    $scope.title = 'Planet Shop';
+  .controller('BaseController', ($scope) => {
+    $scope.title = 'Angular Items';
 
-    $scope.items = [{
-      title: 'Moon',
-      price: '9.99€',
-      src: '//resources.brunoscopelliti.com/codepen/images/moon.png'
-    }, {
-      title: 'Sun',
-      price: '29.99€',
-      src: '//resources.brunoscopelliti.com/codepen/images/sun.png'
-    }, {
-      title: 'Earth',
-      price: '19.99€',
-      src: '//resources.brunoscopelliti.com/codepen/images/earth.png'
-    }, {
-      title: 'Pluton',
-      price: '5.50€',
-      src: '//resources.brunoscopelliti.com/codepen/images/pluton.png'
-    }, {
-      title: 'Mars',
-      price: '24.00€',
-      src: '//resources.brunoscopelliti.com/codepen/images/mars.png'
-    }];
-
-    $scope.cartItems = [];
-
-    $scope.buyItem = (title, price) => {
-      const objAdded = {
-        title,
-        price
-      };
-      $scope.cartItems.push(objAdded);
-    };
+    $scope.items = [
+      {
+        id: 1,
+        text: 'Learn Vue',
+      },
+      {
+        id: 2,
+        text: 'Learn about single-file components',
+      },
+      {
+        id: 3,
+        text: 'Fall in love',
+      },
+    ];
   });
 
 
 window.angular.module('myApp.directives', [])
-  .directive('itemCard', () => {
+  .directive('itemList', () => {
     return {
-      scope: {
-        title: '@itemTitle',
-        price: '@itemPrice',
-        src: '@itemSrc'
-      },
-      controller: ($scope) => {
-        $scope.addToCart = (t, p) => {
-          const mainScope = window.angular.element('#main').scope();
-          mainScope.buyItem(t, p);
-          return false;
-        };
-      },
-      replace: true,
-      template: '<div class="item-int"><h3>{{title}}</h3><div class="data"><img src="{{src}}" title="{{title}}"><span class="left">price: {{price}}</span><span class="right"><a ng-click="addToCart(title, price);">Add to cart</a></span></div></div>'
-    };
-  })
-  .directive('shoppingCart', () => {
-    return {
-      replace: true,
-      restrict: 'EACM',
-      template: '<div class="sCart"><img src="//resources.brunoscopelliti.com/codepen/images/cart.png" alt="Items: "/> <span class="quantity">{{cartItems.length}}</span></div>'
+      template: '<div><div ng-repeat="item in items">{{ item.text }}</div></<div>'
     };
   });
