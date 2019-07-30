@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>angular-vue</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="angular/index.js"></script>
+  </head>
+  <body>
+    <noscript>
+      <strong>
+        We're sorry but angular-vue doesn't work properly without JavaScript enabled.
+        Please enable it to continue.
+      </strong>
+    </noscript>
+    <table width="100%">
+      <tr>
+        <th>Angular</th>
+        <th>Vue</th>
+      </tr>
+      <tr>
+        <td width="50%" valign="top">
+          <div ng-app="myApp">
+            <div ng-controller="StageController">
+              <div id="main">
+                <div id="header">
+                  <h1>{{title}}</h1>
+                  <shopping-cart></shopping-cart>
+                </div>
+                <div id="items">
+                  <div class="item" ng-repeat="i in items">
+                    <div item-card item-title="{{i.title}}" item-src="{{i.src}}" item-price="{{i.price}}" />
+                  </div>
+                </div>
+                <hr />
+                <div id="footer">
+                  <shopping-cart></shopping-cart>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td width="50%" valign="top">
+          <div id="app"></div>
+        </td>
+      </tr>
+    </table>
+
+    <!-- <div ng-app>
+      <h2>Todo</h2>
+      <div ng-controller="TodoController">
+        <span>{{remaining()}} of {{todos.length}} remaining</span>
+        [ <a href="" ng-click="archive()">archive</a> ]
+        <ul class="unstyled">
+          <li ng-repeat="todo in todos">
+            <input type="checkbox" ng-model="todo.done">
+            <span class="done-{{todo.done}}">{{todo.text}}</span>
+          </li>
+        </ul>
+        <form ng-submit="addTodo()">
+          <input type="text" ng-model="todoText" size="30" placeholder="add new todo here">
+          <input class="btn-primary" type="submit" value="add">
+        </form>
+      </div>
+    </div> -->
+
+
+    <!-- built files will be auto injected -->
+  </body>
+</html>
