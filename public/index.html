@@ -8,6 +8,8 @@
     <title>angular-vue</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
     <script src="angular/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="vue.js"></script>
   </head>
   <body>
     <noscript>
@@ -36,29 +38,21 @@
           </div>
         </td>
         <td width="50%" valign="top">
-          <div id="app"></div>
+          <table width="100%">
+            <tr>
+              <td width="100%" valign="top">
+                <vue-todo-list />
+              </td>
+            </tr>
+            <tr>
+              <td width="100%" valign="top">
+                <div id="app"></div>
+              </td>
+            </tr>
+          </table>
         </td>
       </tr>
     </table>
-
-    <!-- <div ng-app>
-      <h2>Todo</h2>
-      <div ng-controller="TodoController">
-        <span>{{remaining()}} of {{todos.length}} remaining</span>
-        [ <a href="" ng-click="archive()">archive</a> ]
-        <ul class="unstyled">
-          <li ng-repeat="todo in todos">
-            <input type="checkbox" ng-model="todo.done">
-            <span class="done-{{todo.done}}">{{todo.text}}</span>
-          </li>
-        </ul>
-        <form ng-submit="addTodo()">
-          <input type="text" ng-model="todoText" size="30" placeholder="add new todo here">
-          <input class="btn-primary" type="submit" value="add">
-        </form>
-      </div>
-    </div> -->
-
 
     <!-- built files will be auto injected -->
   </body>
